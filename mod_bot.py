@@ -87,8 +87,41 @@ async def zahlenraten(interaction: discord.Interaction):
 
 @bot.tree.command(name='ping', description='Zeigt die Latenz des Bots')
 async def ping(interaction: discord.Interaction):
-    await interaction.response.send_message(f'Pong! {round(bot.latency * 1000)}ms', delite_after=10)
+    await interaction.response.send_message(f'Pong! {round(bot.latency * 1000)}ms', delete_after=10)
     print(f'Ping: {round(bot.latency * 1000)}ms for the user {interaction.user}')
+
+
+@bot.tree.command(name='warn', description='Warne ein Mitglied über sein Verhalten.')
+@app_commands.describe(member='Das Mitglied, das gewarnt werden soll', reason='Der Grund für die Warnung')
+async def warn(interaction: discord.Interaction, member: discord.Member, reason: str):
+    if not any(role.name == MODERATOR_ROLE_NAME for role in interaction.user.roles):
+        await interaction.response.send_message('Du hast nicht die Berechtigung, diesen Befehl auszuführen.',
+                                                ephemeral=True)
+        return
+    try:
+        await member.send(f'Du wurdest gewarnt. Grund: {reason}')
+        await interaction.response.send_message(f'{member} wurde gewarnt. Grund: {reason}')
+    except discord.Forbidden:
+        await interaction.response.send_message(
+            f'{member} konnte nicht gewarnt werden, da die Nachricht nicht zugestellt werden konnte.')
+
+
+@bot.tree.command(name='serverinfo', description='Zeigt Informationen über den Server an.')
+async def serverinfo(interaction: discord.Interaction):
+    guild = interaction.guild
+    member_count = guild.member_count
+    channel_count = len(guild.channels)
+    role_count = len(guild.roles)
+
+    embed = discord.Embed(
+        title=f'Server-Info: {guild.name}',
+        color=discord.Color.green()
+    )
+    embed.add_field(name='Mitgliederanzahl', value=member_count)
+    embed.add_field(name='Anzahl der Kanäle', value=channel_count)
+    embed.add_field(name='Anzahl der Rollen', value=role_count)
+
+    await interaction.response.send_message(embed=embed)
 
 
 bot.run(TOKEN)
