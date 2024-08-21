@@ -1,47 +1,36 @@
 Insert your Bot Token before running the code.
 
-This bot is to make the Moderation of the server easier. It can be used to kick ban and unban Users. <br>
-More features will be added soon.
+Commands:
 
-## Installation
-1. Install the dependencies:
+  /kick
+        Description: Kick a member from the server.
+        Parameters:
+            member: The member to be kicked.
+            reason: The reason for kicking the member.
 
-    ``pip install discord`` <br>
-    ``pip install aiohttp`` <br>
-    ``pip install requests`` <br>
-    ``pip install python-dotenv`` <br>
-<br>
-2. Insert your bot token into the `mod_bot.py` file: <br><br>
-    TOKEN = 'YOUR_BOT_TOKEN'
-<br><br>
-3. Start the bot:
-    ``
-    python mod_bot.py
-    ``
+  /ban
+        Description: Ban a member from the server.
+        Parameters:
+            member: The member to be banned.
+            reason: The reason for banning the member.
 
-## Commands
+  /unban
+        Description: Unban a user from the server.
+        Parameters:
+            member: The user whose ban should be lifted.
 
-- **/kick**: Kick a member from the server
-    - **Parameters**:
-        - `member`: The member to be kicked
-        - `reason`: The reason for kicking
+  /zahlenraten (Number Guessing Game)
+        Description: Play a simple number guessing game.
+        Interactivity: The bot picks a number between 1 and 10 that the user has to guess.
 
-- **/ban**: Ban a member from the server
-    - **Parameters**:
-        - `member`: The member to be banned
-        - `reason`: The reason for banning
+  /ping
+        Description: Shows the bot’s latency in milliseconds.
 
-- **/unban**: Unban a user
-    - **Parameters**:
-        - `member`: The member to be unbanned
+  /warn
+        Description: Warn a member about their behavior.
+        Parameters:
+            member: The member to be warned.
+            reason: The reason for the warning.
 
-- **/zahlenraten**: Play a number guessing game
-
-- **/ping**: Shows the bot's latency
-
-- **/warn**: Warn a member about their behavior
-    - **Parameters**:
-        - `member`: The member to be warned
-        - `reason`: The reason for the warning
-
-- **/serverinfo**: Shows information about the server
+  /serverinfo
+        Description: Displays information about the server, including member count, channel count, and role count.
