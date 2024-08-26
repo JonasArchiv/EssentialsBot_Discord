@@ -1,36 +1,53 @@
 Insert your Bot Token before running the code.
 
-Commands:
 
-  /kick
-        Description: Kick a member from the server.
-        Parameters:
-            member: The member to be kicked.
-            reason: The reason for kicking the member.
+## Installation
+1. Install the dependencies:
 
-  /ban
-        Description: Ban a member from the server.
-        Parameters:
-            member: The member to be banned.
-            reason: The reason for banning the member.
+    ``pip install discord`` <br>
+    ``pip install aiohttp`` <br>
+    ``pip install requests`` <br>
+    ``pip install python-dotenv`` <br>
+<br>
+2. Insert your bot token into the `mod_bot.py` file: <br><br>
+    TOKEN = 'YOUR_BOT_TOKEN'
+<br><br>
+3. Start the bot:
+    ``
+    python mod_bot.py
+    ``
 
-  /unban
-        Description: Unban a user from the server.
-        Parameters:
-            member: The user whose ban should be lifted.
+## Commands
 
-  /zahlenraten (Number Guessing Game)
-        Description: Play a simple number guessing game.
-        Interactivity: The bot picks a number between 1 and 10 that the user has to guess.
+- **/kick**: Kick a member from the server
+    - **Parameters**:
+        - `member`: The member to be kicked
+        - `reason`: The reason for kicking
 
-  /ping
-        Description: Shows the bot’s latency in milliseconds.
+- **/ban**: Ban a member from the server
+    - **Parameters**:
+        - `member`: The member to be banned
+        - `reason`: The reason for banning
 
-  /warn
-        Description: Warn a member about their behavior.
-        Parameters:
-            member: The member to be warned.
-            reason: The reason for the warning.
+- **/unban**: Unban a user
+    - **Parameters**:
+        - `member`: The member to be unbanned
 
-  /serverinfo
-        Description: Displays information about the server, including member count, channel count, and role count.
+- **/zahlenraten**: Play a number guessing game
+
+- **/ping**: Shows the bot's latency
+
+- **/warn**: Warn a member about their behavior
+    - **Parameters**:
+        - `member`: The member to be warned
+        - `reason`: The reason for the warning
+
+- **/serverinfo**: Shows information about the server
+
+<br>
+
+Preview: <br>
+<img src="p1.png"> <br>
+<img src="p2.png"> <br>
+<img src="p3.png"> <br>
+<img src="p4.png"> <br>
